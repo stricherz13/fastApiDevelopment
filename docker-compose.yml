@@ -4,7 +4,17 @@ services:
   dev-db:
     image: postgres:16.1-alpine3.19
     restart: always
+    ports:
+      - "5432:5432"
     environment:
-      POSTGRES_DB: mydb
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: inventory
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+name: fastapi-development
