@@ -1,13 +1,12 @@
 from fastapi import FastAPI
-
 app = FastAPI()
 
 
 @app.get("/")
-async def root():
-    return {"message": "Hello World"}
+def root():
+    return {"root": "root"}
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+@app.get("/hello")
+def hello():
+    return {"Hello": "Hello you doing?"}
